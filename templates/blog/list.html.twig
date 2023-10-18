@@ -1,0 +1,58 @@
+{% extends 'blog/blog.html.twig' %}
+
+{% block content %}
+    <center><div class="card">
+            {% block content_blog %}
+                <h1>Liste des Articles</h1>
+
+                {% if articles|length > 0 %}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Contenu</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for article in articles %}
+                            <tr>
+                                <td>{{ article.id }}</td>
+                                <td>{{ article.title }}</td>
+                                <td>{{ article.content }}</td>
+                                <td>
+                                    <a href="{{ path('blog_viewAction', {'id': article.id}) }}">Voir</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        {% if totalpages > 1 %}
+                            <ul>
+                                {% if page > 1 %}
+                                    <li><a href="{{ path('blog_listAction', {'page': page - 1}) }}">Précédent</a></li>
+                                {% endif %}
+                                {% for p in 1..totalpages %}
+                                    <li{% if p == page %} class="active"{% endif %}>
+                                        <a href="{{ path('blog_listAction', {'page': p}) }}">{{ p }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% if page < totalpages %}
+                                    <li><a href="{{ path('blog_listAction', {'page': page + 1}) }}">Suivant</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                {% else %}
+                    <p>Aucun article trouvé.</p>
+                {% endif %}
+            {% endblock %}
+        </div></center>
+
+{% endblock  %}
+
+

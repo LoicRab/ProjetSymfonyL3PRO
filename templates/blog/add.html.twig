@@ -1,0 +1,11 @@
+{% extends 'blog/blog.html.twig' %}
+
+{% block leftMenu %}{% endblock %}
+
+{% block body %}
+    <h1>Créer un Nouveau Article</h1>
+
+    {{ include('blog/form.html.twig') }}
+
+    <a href="{{ path('blog_listAction') }}">Revenir a la Liste</a>
+{% endblock %}

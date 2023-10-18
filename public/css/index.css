@@ -1,0 +1,115 @@
+/* Style de la pagination */
+.pagination ul {
+    list-style: none;
+    display: flex; /* Utilisez flexbox pour aligner horizontalement */
+    justify-content: center; /* Centrez les éléments horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px; /* Espace entre les éléments */
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #007bff; /* Couleur d'arrière-plan des liens */
+    color: #fff; /* Couleur du texte des liens */
+    border: 1px solid #007bff; /* Bordure autour des liens */
+    border-radius: 3px; /* Coins arrondis */
+}
+
+.pagination a.active {
+    background-color: #000; /* Couleur d'arrière-plan des liens actifs */
+}
+
+
+.done{
+    text-decoration: line-through;
+    background-color: rgba(0,255,0,0.3)
+}
+
+.card{
+    font-family: helvetica;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    max-width: 300px;
+}
+
+.card h1{
+    padding: 5px 1em;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px 5px 0 0;
+}
+
+.card li{
+    padding: 1em;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    list-style-type: none;
+}
+
+.card li:last-child{
+    border-bottom: none
+}
+body {margin:0;}
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #111;}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+    ul.topnav li:not(:first-child) {display: none;}
+    ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:680px) {
+    ul.topnav.responsive {position: relative;}
+    ul.topnav.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    ul.topnav.responsive li {
+        float: none;
+        display: inline;
+    }
+    ul.topnav.responsive li a {
+        display: block;
+        text-align: left;
+    }
+
+
+}
+
+
+
+
+
+
+

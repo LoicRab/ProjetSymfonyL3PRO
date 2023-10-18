@@ -1,0 +1,20 @@
+{% extends 'blog/blog.html.twig' %}
+
+{% block H1 %}
+    <h1>BLOG N°{{ article.id }}</h1>
+{% endblock %}
+
+
+ {% block leftMenu %}
+
+ {% endblock %}
+{% block content_blog %}
+     <button>
+         Modifier
+     </button>
+     <button ><a href="{{ path('blog_deleteAction', {'id': article.id}) }}">
+             Supprimer</a>
+     </button>
+
+
+ {% endblock %}

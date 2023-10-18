@@ -2,15 +2,71 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}PAGE : {% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
+
+    </head>
+
+    <header>
+
+            <ul class="topnav">
+                {% block Menu %}
+                <li><a class="active" href={{ path('app_default_home') }}>Accueil</a></li>
+                <li><a href="{{ path('blog_listAction') }}">Blogs</a></li>
+                <li><a href="{{ path('app_default_about') }}">A-Propos</a></li>
+                    <li><a href="javascript:history.go(-1)">Retour</a></li>
+                {% endblock %}
+            </ul>
+
+    </header>
+    <body>
+    {% block body %}
+        {% block H1 %}
+            <h1>Bienvenue sur le blog ! </h1>
         {% endblock %}
 
-        {% block javascripts %}
+
+            <div class="card">
+
+                <p> {% block leftMenu %}
+                <h1>Last articles</h1>
+                        {{ render(controller(
+                            'App\\Controller\\BlogController::articleContenu',
+                            { 'nbProducts': 3 }
+                        )) }}
+                    {% endblock %}</p>
+            </div>
+
+
+        {% block flash %}
+            {% for msg in app.session.flashBag.get('info') %}
+                <p>{{ msg }}</p>
+            {% endfor %}
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+
+        {% block content %}
+
+        {% endblock %}
+
+    {% endblock %}
+
     </body>
+
+
+    <footer>
+
+    </footer>
 </html>
+
+
+
+<script>
+    function myFunction() {
+        document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+    }
+</script>
+
+</body>
+</html>
+

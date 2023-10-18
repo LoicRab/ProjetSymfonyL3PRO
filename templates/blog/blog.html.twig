@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} BLOG
+{% endblock %}
+
+
+
+{% block H1 %}
+    <h1>Vous etes sur le blog !</h1>
+{% endblock %}
+
+{% block Menu %}
+    {{ parent() }}
+        <li><a class="active" href="{{ path('blog_addAction') }}">Ajouter un Blog</a></li>
+{% endblock %}
+
+
+
+{% block content %}
+<center><div class="card">
+
+        {% block content_blog %}
+
+
+        {% endblock %}
+        <p>Contenu des blogs ! </p>
+    </div></center>
+{% endblock %}
