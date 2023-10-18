@@ -1,0 +1,7 @@
+{% for article in articles %}
+    <li>
+        {{ article.article }}
+        <br><a href="{{ path('blog_viewAction',{'id':article.id}) }}">Y ALLER</a>
+
+    </li>
+{% endfor %}
